@@ -28,7 +28,7 @@ hbw.entity.outline = function(datas) {
      */
     this.push = function(data) {
         if(typeof(data) != 'object') {
-            throw new hbw.entity.exception("Incorrect example given, object was expected");
+            throw new "Incorrect example given, object was expected";
         }
         
         if(this.rows.length > 0) {
