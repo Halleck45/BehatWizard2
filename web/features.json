@@ -1,0 +1,109 @@
+[
+    {
+        "title":"Hello world",
+        "notes":"",
+        "inorder":"to anything",
+        "as":"anything",
+        "should":"be able to do anything",
+        "scenarios":[{
+                "title":"my title",
+                "steps":[{
+                        "type":"Given",
+                        "text":"anything <true>",
+                        "outline":[]
+                    },{
+                        "type":"When",
+                        "text":"<anything> true",
+                        "outline":[]
+                    },{
+                        "type":"Then",
+                        "text":"anything true as following:",
+                        "outline":[["var 1","var 2"],["1","2"]]
+                    }],
+                "isOutline":true,
+                "examples":[["true","anything"],["1","2"],["1","2"]]
+            }],
+        "background":[]
+    },
+    {
+        "title":"My Feature",
+        "notes":"",
+        "inorder":"In order to anything",
+        "as":"As as anything",
+
+        "should":"I should be able to do anything",
+        "scenarios":[{
+                "title":"my title",
+                "steps":[{
+                        "type":"Given",
+                        "text":"anything <true>",
+                        "outline":[]
+                    },{
+                        "type":"When",
+                        "text":"<anything> true",
+                        "outline":[]
+                    },{
+                        "type":"Then",
+                        "text":"anything true as following:",
+                        "outline":[["var 1","var 2"],["1","2"]]
+                    }],
+                "isOutline":true,
+                "examples":[["true","anything"],["1","2"],["1","2"]]
+            }],
+        "background":[]
+    },
+    {
+        "title":"Feature 2",
+        "notes":"",
+        "inorder":"In order to anything",
+        "as":"As as anything",
+
+        "should":"I should be able to do anything",
+        "scenarios":[{
+                "title":"my title",
+                "steps":[{
+                        "type":"Given",
+                        "text":"anything <true>",
+                        "outline":[]
+                    },{
+                        "type":"When",
+                        "text":"<anything> true",
+                        "outline":[]
+                    },{
+                        "type":"Then",
+                        "text":"anything true as following:",
+                        "outline":[["var 1","var 2"],["1","2"]]
+                    }],
+                "isOutline":true,
+                "examples":[["true","anything"],["1","2"],["1","2"]]
+            }],
+        "background":[]
+    },
+    {
+        "title":"Feature 3",
+        "notes":"",
+        "inorder":"In order to anything",
+        "as":"As as anything",
+
+        "should":"I should be able to do anything",
+        "scenarios":[{
+                "title":"my title",
+                "steps":[{
+                        "type":"Given",
+                        "text":"anything <true>",
+                        "outline":[]
+                    },{
+                        "type":"When",
+                        "text":"<anything> true",
+                        "outline":[]
+                    },{
+                        "type":"Then",
+                        "text":"anything true as following:",
+                        "outline":[["var 1","var 2"],["1","2"]]
+                    }],
+                "isOutline":true,
+                "examples":[["true","anything"],["1","2"],["1","2"]]
+            }],
+        "background":[]
+    }
+]

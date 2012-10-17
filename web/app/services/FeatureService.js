@@ -1,7 +1,7 @@
 hbw.app.service('FeatureService', function() {
 
     this.features = [];
-    this.currentFeatureIndex = null;
+    this.currentFeatureIndex = 0; // tmp: we provide default feature
 
     /**
      * Get the current feature

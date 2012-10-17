@@ -1,2 +1,2 @@
 FeatureListController.$inject = ['$scope', 'FeatureService','$http'];
-FeatureDetailController.$inject = ['$scope', 'FeatureService'];
+FeatureDetailController.$inject = ['$scope', 'FeatureService','$http'];
