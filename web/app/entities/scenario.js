@@ -121,6 +121,23 @@ hbw.entity.scenario = function(datas) {
         step.parent = this;
 
         this.steps[position] = step;
+
+        //
+        // Order step by type
+        this.steps.sort(function(a,b) {
+            var v1,v2;
+            switch(a.type.toLowerCase()) {
+                case 'given': v1 = 1; break;
+                case 'when':  v1 = 2; break;
+                case 'then':  v1 = 3; break;
+            }
+            switch(b.type.toLowerCase()) {
+                case 'given': v2 = 1; break;
+                case 'when':  v2 = 2; break;
+                case 'then':  v2 = 3; break;
+            }
+            return v1 > v2;
+        })
         return this;
     }
 

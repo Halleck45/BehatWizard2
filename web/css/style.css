@@ -12,6 +12,14 @@
 .scenario-prev-add {
     margin-left:20px;
 }
+.features-prev-container.ui-scrollfix {
+    position:fixed;
+    top:0px;
+    width:300px;
+}
+
+
+
 .ui-hide {
     display:none;
 }
@@ -23,7 +31,7 @@
     top:0px;
     width:620px;
 }
-.feature-infos-container.ui-scrollfix .feature-infos-preview {
+.feature-infos-container .ui-scrollfix .feature-infos-preview {
     -moz-opacity: 1;
     opacity: 1;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
@@ -33,12 +41,12 @@
     -ms-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
-.feature-infos-container.ui-scrollfix {
+.feature-infos-container .ui-scrollfix {
     -moz-opacity: 1;
     opacity: 1;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
 }
-.feature-infos-container.ui-scrollfix .feature-infos-full {
+.feature-infos-container .ui-scrollfix .feature-infos-full {
     -moz-opacity: 0.00;
     opacity: 0.00;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=0);
@@ -47,9 +55,62 @@
     -o-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-
-
 }
-.scenario-container {
-    margin-top:200px;
+
+/* ---- Edit One scenario ---- */
+.box-act {
+    padding:5px 0;
+    text-align:right;
+}
+.scenario-edit {
+    margin-top:10px;
+}
+.step-prev {
+    float:left;
+}
+.scenario-edit-actions {
+    -moz-opacity: 0.3;
+    opacity: 0.3;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=30);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    padding:0 0 10px 40px;
+}
+.scenario-edit:hover .scenario-edit-actions {
+    -moz-opacity: 1;
+    opacity: 1;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
+}
+
+.step-type {
+    font-weight:bold;
+}
+.step-prev-actions {
+    -moz-opacity: 0.3;
+    opacity: 0.3;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=30);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.edit-scenario-step li:hover .step-prev-actions {
+    -moz-opacity: 1;
+    opacity: 1;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
+}
+.edit-scenario-step li:hover {
+    background:#F5F5F5;
+}
+/* ----- examples ----- */
+.scenario-examples .table {
+    font-size:0.9em;
+}
+.scenario-examples{
+    padding-left:40px;;
 }

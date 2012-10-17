@@ -1,0 +1,17 @@
+.CodeMirror {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#333;
+}
+.cm-s-default span.cm-variable {
+    color:#333;
+}
+.CodeMirror-lines {
+    padding: 0.2em;
+}
+.edit-scenario-title .CodeMirror-scroll {
+    font-weight:bold;
+    font-size:1.2em;
+}
+.CodeMirror-scroll {
+    height: auto; overflow: visible;
+}

@@ -20,5 +20,12 @@ hbw.app.service('FeatureService', function() {
     this.push = function(feature) {
         this.features.push(feature);
         // todo : notify observers
+    };
+
+    this.setFeatures = function(datas) {
+        var i;
+        for(i in datas) {
+            this.features.push(new hbw.entity.feature(datas[i]));
+        }
     }
 });

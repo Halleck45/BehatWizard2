@@ -1,0 +1,24 @@
+<div class="features-prev-container" ui-scrollfix="+0">
+    <div class="well feature-infos-preview">
+        <i class="icon cursor icon-zoom-in" data-target="#displayPreview" data-toggle="modal"></i>
+        <strong>{{feature.title}}</strong>:
+        <div class="feature-infos-preview-els">
+            In order {{feature.inorder}}
+            <br />As {{feature.as}}
+            <br />I should {{feature.should}}
+            <br />{{feature.notes}}
+        </div>
+        <hr />
+        <p>
+            You have <b>{{feature.scenarios.length}} scenarios</b>. <a ng-click="addScenario(feature)">New scenario</a>
+        </p>
+
+        <div class="prev-scenarios feature-prev-details">
+
+            <div ng-repeat="scenario in feature.scenarios">
+                <i class="icon icon-th-large"></i> <a href="#scenario-{{ $index }}">{{scenario.title}}</a>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,11 +1,13 @@
 [
     {
+        "id":"abcdefghijklmnopqrst",
         "title":"Hello world",
         "notes":"",
         "inorder":"to anything",
         "as":"anything",
         "should":"be able to do anything",
-        "scenarios":[{
+        "scenarios":[
+            {
                 "title":"my title",
                 "steps":[{
                         "type":"Given",
@@ -22,10 +24,30 @@
                     }],
                 "isOutline":true,
                 "examples":[["true","anything"],["1","2"],["1","2"]]
-            }],
+            },
+            {
+                "title":"scenario 2",
+                "steps":[{
+                        "type":"Given",
+                        "text":"anythingdsf ",
+                        "outline":[]
+                    },{
+                        "type":"When",
+                        "text":"qsf  true",
+                        "outline":[]
+                    },{
+                        "type":"Then",
+                        "text":"aqsfd qf qsf ",
+                        "outline":[]
+                    }],
+                "isOutline":false,
+                "examples":[]
+            }
+        ],
         "background":[]
     },
     {
+        "id":"aaaaaaaaaaaaaaaaaaaaaaaa",
         "title":"My Feature",
         "notes":"",
         "inorder":"In order to anything",
@@ -53,6 +75,7 @@
         "background":[]
     },
     {
+        "id":"bbbbbbbbbbbbbbbbbbbbbbbbb",
         "title":"Feature 2",
         "notes":"",
         "inorder":"In order to anything",
