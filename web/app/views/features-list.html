@@ -1,0 +1,14 @@
+
+<div ng-repeat="feature in features">
+    <div class="feature-title">Feature: {{feature.title}}</div>
+    <div class="feature-inorder"><span>In order to</span> {{feature.inorder}}</div>
+    <div class="feature-inorder"><span>As</span> {{feature.as}}</div>
+    <div class="feature-inorder"><span>I should </span> {{feature.ishould}}</div>
+
+    <div class="scenario" ng-repeat="scenario in feature.scenarios">
+        {{scenario.title}}
+
+    </div>
+
+    {{feature}}
+</div>
