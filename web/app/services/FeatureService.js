@@ -1,0 +1,24 @@
+hbw.app.service('FeatureService', function() {
+
+    this.features = [];
+    this.currentFeatureIndex = null;
+
+    /**
+     * Get the current feature
+     * 
+     * @return hbw.entity.feature
+     */
+    this.getCurrentFeature = function() {
+        return this.features[this.currentFeatureIndex];
+    };
+
+    /**
+     * Push feature
+     *
+     * @param feature hbw.entity.feature
+     */
+    this.push = function(feature) {
+        this.features.push(feature);
+        // todo : notify observers
+    }
+});
