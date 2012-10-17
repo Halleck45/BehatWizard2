@@ -1,6 +1,6 @@
 /* ----- common ----- */
 .state {
-    border-bottom:1px solid #EEE;
+    margin-bottom:2px;
 }
 .state-success {
     background-color:#DFF0D8;
@@ -11,6 +11,13 @@
 .state-pending {
     background-color:#FCF8E3;
 }
+.cursor {
+    cursor:pointer;
+}
+.drag-handle {
+    cursor:move;
+}
+
 
 /* ---- Edit a feature ----- */
 /* ------------------------- */

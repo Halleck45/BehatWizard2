@@ -70,5 +70,6 @@ function FeatureDetailController($scope, FeatureService, $http) {
 
     $scope.searchValues = function(node) {
         return node && node.rows ? node.rows : [];
-    }
+    };
+
 }

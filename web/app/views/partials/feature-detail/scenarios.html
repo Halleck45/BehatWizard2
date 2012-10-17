@@ -14,12 +14,13 @@
                       }" ng-model="scenario.title"></textarea>
         </div>
         <div class="edit-scenario-step">
-            <ul>
+            <ul ui-sortable="{axis: 'y', handle:'.icon-move'}" ng-model="scenario.steps">
                 <li ng-repeat="step in scenario.steps" class="state state-{{step.state}}">
                     <span class="step-prev">
                         <span class="step-prev-actions">
-                            <i class="icon icon-remove-circle" ng-click="removeStep(scenario, $index)" title="Remove this step" ui-jq="tooltip" ></i>
-                            <i class="icon icon-th" title="Click here to add examples"ui-jq="tooltip" ></i>
+                            <i class="icon cursor icon-move drag-handle"  ></i>
+                            <i class="icon cursor icon-remove-circle" ng-click="removeStep(scenario, $index)" title="Remove this step" ui-jq="tooltip" ></i>
+                            <i class="icon cursor icon-th" title="Click here to add examples"ui-jq="tooltip" ></i>
                         </span>
                         <span class="step-type step-type-{{step.type}}">{{step.type}}</span>
                     </span>
