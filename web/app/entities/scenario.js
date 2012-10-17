@@ -141,6 +141,16 @@ hbw.entity.scenario = function(datas) {
         return this;
     }
 
+    this.removeStep = function(step) {
+        var i;
+        for(i in this.steps) {
+            if(this.steps[i].asString() === step.asString()) {
+                this.steps.splice(i,1);
+                return;
+            }
+        }
+    }
+
 
     /**
      * Call the rendering

@@ -23,33 +23,15 @@
 .ui-hide {
     display:none;
 }
-.feature-infos-container .feature-infos-preview {
-    -moz-opacity: 0.00;
-    opacity: 0.00;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=0);
-    position:fixed;
-    top:0px;
-    width:620px;
-}
-.feature-infos-container .ui-scrollfix .feature-infos-preview {
-    -moz-opacity: 1;
-    opacity: 1;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-}
 .feature-infos-container .ui-scrollfix {
     -moz-opacity: 1;
     opacity: 1;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
 }
 .feature-infos-container .ui-scrollfix .feature-infos-full {
-    -moz-opacity: 0.00;
-    opacity: 0.00;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=0);
+    -moz-opacity: 0.30;
+    opacity: 0.30;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=3);
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
@@ -68,7 +50,7 @@
 .step-prev {
     float:left;
 }
-.scenario-edit-actions {
+.def-hide {
     -moz-opacity: 0.3;
     opacity: 0.3;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=30);
@@ -77,10 +59,11 @@
     -o-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-
+}
+.scenario-edit-actions {
     padding:0 0 10px 40px;
 }
-.scenario-edit:hover .scenario-edit-actions {
+.scenario-edit:hover .def-hide {
     -moz-opacity: 1;
     opacity: 1;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
@@ -105,7 +88,7 @@
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
 }
 .edit-scenario-step li:hover {
-    background:#F5F5F5;
+    background:#FFF;
 }
 /* ----- examples ----- */
 .scenario-examples .table {

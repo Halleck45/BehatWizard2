@@ -18,7 +18,7 @@
                 <li ng-repeat="step in scenario.steps">
                     <span class="step-prev">
                         <span class="step-prev-actions">
-                            <i class="icon icon-remove-circle" title="Remove this step" ui-jq="tooltip" ></i>
+                            <i class="icon icon-remove-circle" ng-click="removeStep(scenario, $index)" title="Remove this step" ui-jq="tooltip" ></i>
                             <i class="icon icon-th" title="Click here to add examples"ui-jq="tooltip" ></i>
                         </span>
                         <span class="step-type step-type-{{step.type}}">{{step.type}}</span>
@@ -35,9 +35,9 @@
 
 
         <div class="scenario-edit-actions">
-            <button class="btn" ng-click="addStep( scenario, {type:'Given', text:'...'} );"><i class="icon icon-plus-sign"></i> Pre-requisites</button>
-            <button class="btn" ng-click="addStep( scenario, {type:'When', text:'...'} );"><i class="icon icon-plus-sign"></i> Event</button>
-            <button class="btn" ng-click="addStep( scenario, {type:'Then', text:'...'} );"><i class="icon icon-plus-sign"></i> Expected result</button>
+            <button class="def-hide  btn" ng-click="addStep( scenario, {type:'Given', text:'...'} );"><i class="icon icon-plus-sign"></i> Pre-requisites</button>
+            <button class="def-hide  btn" ng-click="addStep( scenario, {type:'When', text:'...'} );"><i class="icon icon-plus-sign"></i> Event</button>
+            <button class="def-hide  btn" ng-click="addStep( scenario, {type:'Then', text:'...'} );"><i class="icon icon-plus-sign"></i> Expected result</button>
         </div>
 
         <div class="scenario-examples" ui-show="searchVars(scenario).length > 0">
@@ -49,11 +49,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="row in searchValues(scenario.examples)">
-                        <td ng-repeat="cell in row">{{cell}}</td>
+                    <tr ng-repeat="row in searchValues(scenario.examples)" ng-class="{'hide':$first}">
+                        <td ng-repeat="cell in row">
+                            <textarea placeholder="..." class="span8 input-scenario-title" ui-codemirror="{
+                                      mode:'text/javascript',
+                                      matchBracket:false
+                                      }" ng-model="cell"></textarea>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+
+            <div class="def-hide">
+                <button class="def-hide btn btn-small" ng-click="addExampleRow(scenario)">add row</button> 
+                <br /><i class="icon icon-info-sign"></i> <i>Use the &lt;name1&gt; notation in any step to add new column</i>
+            </div>
         </div>
     </div>
 </div>

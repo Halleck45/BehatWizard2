@@ -10,6 +10,21 @@ function FeatureDetailController($scope, FeatureService, $http) {
     $scope.addStep=function(scenario, stepDatas) {
         scenario.addStep(new hbw.entity.step(stepDatas));
     }
+    $scope.addExampleRow=function(scenario) {
+        var max = this.searchVars(scenario).length;
+        var datas = [];
+        var i;
+        for(i = 0 ; i < max ; i++) {
+            datas.push('...');
+        }
+        if(datas.length > 0) {
+            scenario.examples.push(datas);
+        }
+    }
+
+    $scope.removeStep = function(scenario, index) {
+        scenario.removeStep(scenario.steps[index]);
+    }
 
     $scope.addScenario=function(feature) {
         feature.addScenario(new hbw.entity.scenario(
@@ -17,17 +32,17 @@ function FeatureDetailController($scope, FeatureService, $http) {
             title:'New scenario',
             steps: [
             {
-                type:'given',
+                type:'Given',
                 'text':'...'
             },
 
             {
-                type:'when',
+                type:'When',
                 'text':'...'
             },
 
             {
-                type:'then',
+                type:'Then',
                 'text':'...'
             }
             ]
