@@ -8,8 +8,10 @@
     <div class="span4">
         <h2>Current feature</h2>
         <div ng-include="'app/views/partials/feature-detail/preview-current-feature.html'">loading</div>
-        <h2>All features</h2>
-        <div ng-include="'app/views/partials/preview-features.html'">loading</div>
+        <div class="box-list-features">
+            <h2>All features</h2>
+            <div ng-include="'app/views/partials/preview-features.html'">loading</div>
+        </div>
     </div>
 
 
@@ -17,10 +19,21 @@
 
 
         <div class="feature-infos-container" >
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <span class="brand"><span class="badge badge-info">1</span> Describe your feature in few words:</span>
+                </div>
+            </div>
             <div ng-include="'app/views/partials/feature-detail/main-infos.html'">loading</div>
         </div>
 
         <div class="scenario-container">
+            <hr />
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <span class="brand"><span class="badge badge-info">2</span> Add scenarios in your feature:</span>
+                </div>
+            </div>
             <div ng-include="'app/views/partials/feature-detail/scenarios.html'">loading</div>
         </div>
 

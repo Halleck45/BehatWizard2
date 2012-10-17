@@ -1,52 +1,47 @@
 <div ui-scrollfix="+650">
 
     <div class="feature-infos-full">
-        <div class="hero-unit">
-            <h1>In two words</h1>
-            <p>Describe your feature here in a few words</p>
-            <div class="form-horizontal">
 
-                <fieldset>
-                    <legend>In brief</legend>
-                    <div class="control-group">
-                        <label class="control-label" for="title">Title</label>
-                        <div class="controls">
-                            <input class="input-xlarg" placeholder="..." id="title" name="title" ng-model="feature.title" />
-                            <p class="help-block">Title of your feature</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inorder">In order</label>
-                        <div class="controls">
-                            <input class="input-xlarg" placeholder="..." id="inorder" name="inorder"  ng-model="feature.inorder" />
-                            <p class="help-block">Objective of your feature</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="as">As</label>
-                        <div class="controls">
-                            <input class="input-xlarg" placeholder="..." id="as" name="as"  ng-model="feature.as" />
-                            <p class="help-block">Actor of your feature</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="should">I should</label>
-                        <div class="controls">
-                            <input class="input-xlarg" placeholder=" ..." id="should" name="should"  ng-model="feature.should" />
-                            <p class="help-block">Benefice of your feature</p>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <fieldset id="box-notes">
-                    <legend>Notes</legend>
-                    <div class="control-group">
-                        <textarea rows="6" class="field  span6" placeholder="..." id="notes" name="notes" ng-model="feature.notes"></textarea>
-                        <p class="help-block">Fill notes ONLY if it's really essential to understanding.</p>
-                    </div>
-                </fieldset>
+        <div class="feature-title-container">
+            <div>
+                <input class="reset feature-main-title" type="text" ng-model="feature.title" placeholder="MyFeature" />
             </div>
+
+            <div class="sub-feature-title">
+                <div  >
+                    <span class="sub-feature-helper"
+                          ui-jq="tooltip" title="Objective of your feature."
+                          >In order</span>
+                    <span class="sub-feature-ipt">
+                        <input class="reset" type="text" ng-model="feature.inorder" placeholder="..."  ui-jq="tooltip" title="Objective of your feature." />
+                    </span>
+                </div>
+                <div>
+                    <span class="sub-feature-helper"
+                          ui-jq="tooltip" title="Actor of your feature."
+                          >As</span>
+                    <span class="sub-feature-ipt">
+                        <input class="reset" type="text" ng-model="feature.as" placeholder="..." ui-jq="tooltip" title="Business benefice of your feature." />
+                    </span>
+                </div>
+                <div>
+                    <span class="sub-feature-helper"
+                          ui-jq="tooltip" title="Business benefice of your feature."
+                          >I should</span>
+                    <span class="sub-feature-ipt">
+                        <input class="reset" type="text" ng-model="feature.should" placeholder="..."  ui-jq="tooltip" title="Business benefice of your feature." />
+                    </span>
+                </div>
+            </div>
+
+            <a  ng-click="showNotes=!showNotes">Details</a>
+            <fieldset id="box-notes" ui-hide="feature.notes.length == 0 || !showNotes">
+                    <textarea rows="6" class="field  span6" placeholder="..." id="notes" name="notes" ng-model="feature.notes"></textarea>
+                    <p class="help-block">Fill notes ONLY if it's really essential to understanding.</p>
+            </fieldset>
         </div>
+
+        
 
         <div>
             <p>
