@@ -1,4 +1,4 @@
-angular.module('hbw', ['ui']).config(['$routeProvider', function($routeProvider) {
+hbw.app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
     when('/features', {
         templateUrl: 'app/views/features-list.html'

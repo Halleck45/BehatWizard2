@@ -1,0 +1,55 @@
+/* ---- Edit a feature ----- */
+/* ------------------------- */
+.feature-prev-title,.scenario-prev-title{
+    color:#333;
+}
+.feature-prev-collapse{
+    cursor:pointer;
+}
+.feature-prev-details {
+    padding-left:40px;
+}
+.scenario-prev-add {
+    margin-left:20px;
+}
+.ui-hide {
+    display:none;
+}
+.feature-infos-container .feature-infos-preview {
+    -moz-opacity: 0.00;
+    opacity: 0.00;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=0);
+    position:fixed;
+    top:0px;
+    width:620px;
+}
+.feature-infos-container.ui-scrollfix .feature-infos-preview {
+    -moz-opacity: 1;
+    opacity: 1;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.feature-infos-container.ui-scrollfix {
+    -moz-opacity: 1;
+    opacity: 1;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
+}
+.feature-infos-container.ui-scrollfix .feature-infos-full {
+    -moz-opacity: 0.00;
+    opacity: 0.00;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=0);
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+
+
+}
+.scenario-container {
+    margin-top:200px;
+}

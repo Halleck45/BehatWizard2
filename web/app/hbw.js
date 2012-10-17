@@ -1,3 +1,3 @@
 hbw = {
-    app: angular.module('hbw', [])
+    app: angular.module('hbw', ['ui'])
 };
