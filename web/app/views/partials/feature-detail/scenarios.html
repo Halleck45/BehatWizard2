@@ -5,8 +5,8 @@
     You have <b>{{feature.scenarios.length}} scenarios</b>. <a ng-click="addScenario(feature)">Click here to add new scenario</a>
 </p>
 
-<div ng-repeat="scenario in feature.scenarios" id="scenario-{{ $index }}">
-    <div class="well form-horizontal scenario-edit">
+<div class="well" ng-repeat="scenario in feature.scenarios" id="scenario-{{ $index }}">
+    <div class=" form-horizontal scenario-edit">
         <div class="edit-scenario-title">
             <textarea placeholder="..." class="span8 input-scenario-title" ui-codemirror="{
                       mode:'text/javascript',
@@ -15,7 +15,7 @@
         </div>
         <div class="edit-scenario-step">
             <ul>
-                <li ng-repeat="step in scenario.steps">
+                <li ng-repeat="step in scenario.steps" class="state state-{{step.state}}">
                     <span class="step-prev">
                         <span class="step-prev-actions">
                             <i class="icon icon-remove-circle" ng-click="removeStep(scenario, $index)" title="Remove this step" ui-jq="tooltip" ></i>

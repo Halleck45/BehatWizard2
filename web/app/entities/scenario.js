@@ -23,6 +23,11 @@ hbw.entity.scenario = function(datas) {
     this.title = null;
 
     /**
+     * State: success,failure,pending
+     */
+    this.state = null;
+
+    /**
      * Steps of the scenario
      *
      * @var array
@@ -89,6 +94,7 @@ hbw.entity.scenario = function(datas) {
         var i, step;
 
         this.title = datas.title || '';
+        this.state = datas.state || 'pending';
         if(datas.isOutline) {
             this.examples = new hbw.entity.outline(datas.examples);
         }

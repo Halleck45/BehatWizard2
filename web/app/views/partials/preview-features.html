@@ -1,14 +1,14 @@
 <div  ng-controller="FeatureListController" class="features-prev-container">
     <div ng-repeat="feature in features">
         <div class="feature-prev">
-            <div >
+            <div class="state state-{{feature.state}}">
                 <i class="icon feature-prev-collapse state-collapsed" 
                    ng-click="showHide=!showHide"
                    ng-class="{'icon-chevron-down':!!showHide,'icon-chevron-right':!showHide}"></i>
                 <a class="feature-prev-title" href="#"><i class="icon icon-folder-close"></i>  {{feature.title}}</a>
             </div>
             <div ui-hide="!showHide" class="feature-prev-details">
-                <div ng-repeat="scenario in feature.scenarios">
+                <div ng-repeat="scenario in feature.scenarios" class="state state-{{scenario.state}}">
                     <a  class="scenario-prev-title" href="#"><i class="icon icon-th-large"></i> {{scenario.title}}</a>
                 </div>
                 <a class="btn btn-mini scenario-prev-add"><i class="icon icon-plus-sign "></i></a>

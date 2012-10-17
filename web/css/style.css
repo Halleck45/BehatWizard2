@@ -1,3 +1,17 @@
+/* ----- common ----- */
+.state {
+    border-bottom:1px solid #EEE;
+}
+.state-success {
+    background-color:#DFF0D8;
+}
+.state-failure {
+    background-color:#F2DEDE;
+}
+.state-pending {
+    background-color:#FCF8E3;
+}
+
 /* ---- Edit a feature ----- */
 /* ------------------------- */
 .feature-prev-title,.scenario-prev-title{
@@ -45,7 +59,8 @@
     text-align:right;
 }
 .scenario-edit {
-    margin-top:10px;
+    padding:10px;
+    background:#FFF;
 }
 .step-prev {
     float:left;

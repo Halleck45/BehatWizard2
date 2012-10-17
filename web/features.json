@@ -2,6 +2,7 @@
     {
         "id":"abcdefghijklmnopqrst",
         "title":"Hello world",
+        "state": "success",
         "notes":"",
         "inorder":"to anything",
         "as":"anything",
@@ -9,36 +10,44 @@
         "scenarios":[
             {
                 "title":"my title",
+                "state": "success",
                 "steps":[{
                         "type":"Given",
                         "text":"anything <true>",
-                        "outline":[]
+                        "outline":[],
+                        "state": "success"
                     },{
                         "type":"When",
                         "text":"<anything> true",
-                        "outline":[]
+                        "outline":[],
+                        "state": "success"
                     },{
                         "type":"Then",
                         "text":"anything true as following:",
-                        "outline":[["var 1","var 2"],["1","2"]]
+                        "outline":[["var 1","var 2"],["1","2"]],
+                        "state": "success"
                     }],
                 "isOutline":true,
                 "examples":[["true","anything"],["1","2"],["1","2"]]
             },
             {
                 "title":"scenario 2",
+                "state": "success",
                 "steps":[{
                         "type":"Given",
                         "text":"anythingdsf ",
-                        "outline":[]
+                        "outline":[],
+                        "state": "success"
                     },{
                         "type":"When",
                         "text":"qsf  true",
-                        "outline":[]
+                        "outline":[],
+                        "state": "success"
                     },{
                         "type":"Then",
                         "text":"aqsfd qf qsf ",
-                        "outline":[]
+                        "outline":[],
+                        "state": "success"
                     }],
                 "isOutline":false,
                 "examples":[]
@@ -49,6 +58,7 @@
     {
         "id":"aaaaaaaaaaaaaaaaaaaaaaaa",
         "title":"My Feature",
+        "state": "failure",
         "notes":"",
         "inorder":"In order to anything",
         "as":"As as anything",
@@ -56,18 +66,22 @@
         "should":"I should be able to do anything",
         "scenarios":[{
                 "title":"my title",
+                "state": "failure",
                 "steps":[{
                         "type":"Given",
                         "text":"anything <true>",
-                        "outline":[]
+                        "outline":[],
+                        "state": "success"
                     },{
                         "type":"When",
                         "text":"<anything> true",
-                        "outline":[]
+                        "outline":[],
+                        "state": "failure"
                     },{
                         "type":"Then",
                         "text":"anything true as following:",
-                        "outline":[["var 1","var 2"],["1","2"]]
+                        "outline":[["var 1","var 2"],["1","2"]],
+                        "state": "failure"
                     }],
                 "isOutline":true,
                 "examples":[["true","anything"],["1","2"],["1","2"]]
@@ -76,6 +90,7 @@
     },
     {
         "id":"bbbbbbbbbbbbbbbbbbbbbbbbb",
+        "state": "pending",
         "title":"Feature 2",
         "notes":"",
         "inorder":"In order to anything",
@@ -84,18 +99,22 @@
         "should":"I should be able to do anything",
         "scenarios":[{
                 "title":"my title",
+                "state": "pending",
                 "steps":[{
                         "type":"Given",
                         "text":"anything <true>",
-                        "outline":[]
+                        "outline":[],
+                        "state": "pending"
                     },{
                         "type":"When",
                         "text":"<anything> true",
-                        "outline":[]
+                        "outline":[],
+                        "state": "pending"
                     },{
                         "type":"Then",
                         "text":"anything true as following:",
-                        "outline":[["var 1","var 2"],["1","2"]]
+                        "outline":[["var 1","var 2"],["1","2"]],
+                        "state": "pending"
                     }],
                 "isOutline":true,
                 "examples":[["true","anything"],["1","2"],["1","2"]]
@@ -104,6 +123,7 @@
     },
     {
         "title":"Feature 3",
+        "state": "success",
         "notes":"",
         "inorder":"In order to anything",
         "as":"As as anything",
@@ -111,18 +131,22 @@
         "should":"I should be able to do anything",
         "scenarios":[{
                 "title":"my title",
+                "state": "success",
                 "steps":[{
                         "type":"Given",
                         "text":"anything <true>",
-                        "outline":[]
+                        "outline":[],
+                        "state": "success"
                     },{
                         "type":"When",
                         "text":"<anything> true",
-                        "outline":[]
+                        "outline":[],
+                        "state": "success"
                     },{
                         "type":"Then",
                         "text":"anything true as following:",
-                        "outline":[["var 1","var 2"],["1","2"]]
+                        "outline":[["var 1","var 2"],["1","2"]],
+                        "state": "success"
                     }],
                 "isOutline":true,
                 "examples":[["true","anything"],["1","2"],["1","2"]]

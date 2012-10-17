@@ -61,6 +61,10 @@ hbw.entity.feature = function(datas) {
      */
     this.notes = datas.notes || null;
 
+    /**
+     * State: success,failure,pending
+     */
+    this.state = datas.state || 'pending';
 
     /**
      * Constructor

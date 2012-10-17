@@ -15,8 +15,8 @@
 
         <div class="prev-scenarios feature-prev-details">
 
-            <div ng-repeat="scenario in feature.scenarios">
-                <i class="icon icon-th-large"></i> <a href="#scenario-{{ $index }}">{{scenario.title}}</a>
+            <div ng-repeat="scenario in feature.scenarios" class="state state-{{scenario.state}}">
+                <i class="icon icon-th-large"></i> <a ng-click="$anchorScroll()" href="#scenario-{{ $index }}">{{scenario.title}}</a>
             </div>
         </div>
 
