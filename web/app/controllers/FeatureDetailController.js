@@ -73,6 +73,6 @@ function FeatureDetailController($scope, FeatureService, $http) {
     };
 
     $scope.changeCurrentFeature = function (index) {
-      this.FeatureService.currentFeatureIndex = index;
+        this.FeatureService.currentFeatureIndex = index;
     };
 }

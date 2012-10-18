@@ -42,7 +42,16 @@ input.reset, input.rest[type="text"] {
 .ui-hide {
     display:none;
 }
-
+.label, .badge {
+    vertical-align:middle;
+}
+.animate {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
 
 
 
@@ -82,22 +91,47 @@ input.feature-main-title {
 .scenario-prev-add {
     margin-left:20px;
 }
-.features-prev-container.ui-scrollfix {
-    position:fixed;
-    top:0px;
-    width:300px;
+
+
+
+/* ---- Ergnomie du menu latéral ----- */
+.main-panel {
+    float:right;
 }
-.box-list-features {
+.lateral-preview {
+    position:fixed;
+    top:50px;
+}
+.lateral-preview.ui-scrollfix {
+    top:0;
+}
+.lateral-preview .feature-infos-preview {
+    top:-24px;
+    height:0;
+    overflow: hidden;
+    min-height: 0;
+    max-height: 0;
+    padding: 0 18px;
     -moz-opacity: 0.1;
     opacity: 0.1;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=10);
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
 }
-.box-list-features:hover {
+.lateral-preview.ui-scrollfix .feature-infos-preview {
+    height:auto;
+    max-height:inherit;
+    overflow: auto;
+    padding-top: 24px ;
+    padding-bottom: 24px ;
+    -moz-opacity: 1;
+    opacity: 1;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
+}
+.lateral-preview.ui-scrollfix .box-list-features{
+    -moz-opacity: 0.1;
+    opacity: 0.1;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=10);
+}
+.lateral-preview.ui-scrollfix .box-list-features:hover {
     -moz-opacity: 1;
     opacity: 1;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
@@ -116,24 +150,14 @@ input.feature-main-title {
     -moz-opacity: 0.30;
     opacity: 0.30;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=3);
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
 }
 
 .scenario-container {
     -moz-opacity: 0.1;
     opacity: 0.1;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=10);
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
 }
-.scenario-container:hover {
+.scenario-container:hover,.scenario-container.ui-scrollfix {
     -moz-opacity: 1;
     opacity: 1;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
@@ -156,11 +180,6 @@ input.feature-main-title {
     -moz-opacity: 0.3;
     opacity: 0.3;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=30);
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
 }
 .scenario-edit-actions {
     padding:0 0 10px 40px;
@@ -178,11 +197,6 @@ input.feature-main-title {
     -moz-opacity: 0.3;
     opacity: 0.3;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=30);
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
 }
 .edit-scenario-step li:hover .step-prev-actions {
     -moz-opacity: 1;

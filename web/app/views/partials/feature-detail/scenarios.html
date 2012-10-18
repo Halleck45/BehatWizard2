@@ -16,11 +16,11 @@
         <div class="edit-scenario-step">
             <ul ui-sortable="{axis: 'y', handle:'.icon-move'}" ng-model="scenario.steps">
                 <li ng-repeat="step in scenario.steps" class="state state-{{step.state}}">
-                    <span class="step-prev">
-                        <span class="step-prev-actions">
+                    <span class="step-prev ">
+                        <span class="step-prev-actions animate">
                             <i class="icon cursor icon-move drag-handle"  ></i>
-                            <i class="icon cursor icon-remove-circle" ng-click="removeStep(scenario, $index)" title="Remove this step" ui-jq="tooltip" ></i>
-                            <i class="icon cursor icon-th" title="Click here to add examples"ui-jq="tooltip" ></i>
+                            <i class="icon cursor icon-remove-circle" ng-click="removeStep(scenario, $index)" title="Remove this step"  ></i>
+                            <i class="icon cursor icon-th" title="Click here to add examples"  ></i>
                         </span>
                         <span class="step-type step-type-{{step.type}}">{{step.type}}</span>
                     </span>
@@ -35,10 +35,10 @@
         </div>
 
 
-        <div class="scenario-edit-actions">
-            <button class="def-hide  btn" ng-click="addStep( scenario, {type:'Given', text:'...'} );"><i class="icon icon-plus-sign"></i> Pre-requisites</button>
-            <button class="def-hide  btn" ng-click="addStep( scenario, {type:'When', text:'...'} );"><i class="icon icon-plus-sign"></i> Event</button>
-            <button class="def-hide  btn" ng-click="addStep( scenario, {type:'Then', text:'...'} );"><i class="icon icon-plus-sign"></i> Expected result</button>
+        <div class="scenario-edit-actions def-hide animate">
+            <button class="  btn" ng-click="addStep( scenario, {type:'Given', text:'...'} );"><i class="icon icon-plus-sign"></i> Pre-requisites</button>
+            <button class=" btn" ng-click="addStep( scenario, {type:'When', text:'...'} );"><i class="icon icon-plus-sign"></i> Event</button>
+            <button class=" btn" ng-click="addStep( scenario, {type:'Then', text:'...'} );"><i class="icon icon-plus-sign"></i> Expected result</button>
         </div>
 
         <div class="scenario-examples" ui-show="searchVars(scenario).length > 0">
@@ -61,8 +61,8 @@
                 </tbody>
             </table>
 
-            <div class="def-hide">
-                <button class="def-hide btn btn-small" ng-click="addExampleRow(scenario)">add row</button> 
+            <div class="def-hide animate">
+                <button class="def-hide animate btn btn-small" ng-click="addExampleRow(scenario)">add row</button>
                 <br /><i class="icon icon-info-sign"></i> <i>Use the &lt;name1&gt; notation in any step to add new column</i>
             </div>
         </div>

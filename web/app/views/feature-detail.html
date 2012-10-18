@@ -1,37 +1,30 @@
 
 <div class="row" ng-controller="FeatureDetailController">
 
-    <!-- preview -->
-    <div ng-include="'app/views/partials/feature-detail/preview-raw.html'">loading</div>
-
-
-    <div class="span4">
-        <h2>Current feature</h2>
+    <div class="span4 lateral-preview"  ui-scrollfix="+50" >
         <div ng-include="'app/views/partials/feature-detail/preview-current-feature.html'">loading</div>
-        <div class="box-list-features">
-            <h2>All features</h2>
+        <div class="box-list-features animate" >
+            <h5>Other features</h5>
             <div ng-include="'app/views/partials/preview-features.html'">loading</div>
         </div>
     </div>
 
 
-    <div class="span8" >
-
-
-        <div class="feature-infos-container" >
+    <div class="span8 main-panel">
+        <div class="feature-infos-container animate" >
             <div class="navbar">
                 <div class="navbar-inner">
-                    <span class="brand"><span class="badge badge-info">1</span> Describe your feature in few words:</span>
+                    <span class="brand">Describe your feature in few words:</span>
                 </div>
             </div>
             <div ng-include="'app/views/partials/feature-detail/main-infos.html'">loading</div>
         </div>
 
-        <div class="scenario-container">
+        <div class="scenario-container animate" ui-scrollfix="+0">
             <hr />
             <div class="navbar">
                 <div class="navbar-inner">
-                    <span class="brand"><span class="badge badge-info">2</span> Add scenarios in your feature:</span>
+                    <span class="brand">Add scenarios in your feature:</span>
                 </div>
             </div>
             <div ng-include="'app/views/partials/feature-detail/scenarios.html'">loading</div>
@@ -39,3 +32,6 @@
 
     </div>
 </div>
+
+<!-- preview -->
+<div ng-include="'app/views/partials/feature-detail/preview-raw.html'">loading</div>
