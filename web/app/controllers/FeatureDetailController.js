@@ -21,6 +21,10 @@ function FeatureDetailController($scope, FeatureService, $http) {
             scenario.examples.push(datas);
         }
     }
+    
+    $scope.removeExampleRow = function(scenario, row) {
+        scenario.examples.removeRow(row);
+    }
 
     $scope.removeStep = function(scenario, index) {
         scenario.removeStep(scenario.steps[index]);

@@ -46,11 +46,17 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
+                        <th class="th-act"></th>
                         <th ng-repeat="title in searchVars(scenario)">{{title}}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="row in searchValues(scenario.examples)" ng-class="{'hide':$first}">
+                    <tr ng-repeat="row in searchValues(scenario.examples)" class="def-hide-row-handler" ng-class="{'hide':$first}">
+                        
+                        <td><i 
+                                ng-click="removeExampleRow(scenario, row);"
+                                class="cursor def-hide-row animate icon icon-remove-sign"></i></td>
+                        
                         <td ng-repeat="cell in row">
                             <textarea placeholder="..." class="span8 input-scenario-title" ui-codemirror="{
                                       mode:'text/javascript',

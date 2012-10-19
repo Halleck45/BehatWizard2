@@ -75,6 +75,16 @@ hbw.entity.outline = function(datas) {
         }
         return content;
     };
+    
+    this.removeRow = function(row) {
+        var i;
+        for(i in this.rows) {
+            if(this.rows[i] === row) {
+                this.rows.splice(i,1);
+                return;
+            }
+        }
+    }
 
     this.initialize(datas);
 };

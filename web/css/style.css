@@ -52,6 +52,21 @@ input.reset, input.rest[type="text"] {
     -ms-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
+.def-hide,
+.def-hide-row {
+    -moz-opacity: 0.3;
+    opacity: 0.3;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=30);
+}
+.def-hide-handler:hover .def-hide,
+.def-hide-row-handler:hover .def-hide-row {
+    -moz-opacity: 1;
+    opacity: 1;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
+}
+.th-act {
+    width:20px;
+}
 
 
 
@@ -176,20 +191,11 @@ input.feature-main-title {
 .step-prev {
     float:left;
 }
-.def-hide {
-    -moz-opacity: 0.3;
-    opacity: 0.3;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=30);
-}
+
+
 .scenario-edit-actions {
     padding:0 0 10px 40px;
 }
-.scenario-edit:hover .def-hide {
-    -moz-opacity: 1;
-    opacity: 1;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
-}
-
 .step-type {
     font-weight:bold;
 }
