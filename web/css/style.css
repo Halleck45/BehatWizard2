@@ -25,6 +25,7 @@ input.reset, input.rest[type="text"] {
     box-shadow: none;
     display:inline-block;
     background:#FFF;
+    background:transparent;
     text-align:left;
     border:none;
     margin:0;
@@ -33,7 +34,7 @@ input.reset, input.rest[type="text"] {
     -webkit-box-shadow: 0px !important;
     box-shadow: none  !important;
     display:inline-block  !important;
-    background:#FFF  !important;
+    background:transparent  !important;
     text-align:left  !important;
     border:none  !important;
     margin:0  !important;
@@ -137,7 +138,7 @@ input.feature-main-title {
     overflow: auto;
     padding-top: 24px ;
     padding-bottom: 24px ;
-    -moz-opacity: 1;
+    -moz-opacity: 1;ex
     opacity: 1;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
 }
@@ -218,4 +219,20 @@ input.feature-main-title {
 }
 .scenario-examples{
     padding-left:40px;;
+}
+/* ----- outline nodes ----- */
+.step-outline table {
+    width:auto;
+    margin:0;
+}
+.step-outline {
+    padding-left:40px;
+    font-size:0.9em;
+}
+.step-outline table input {
+    width:60px;
+    text-align:center;
+}
+.step-outline .table-act {
+    text-align:right;
 }

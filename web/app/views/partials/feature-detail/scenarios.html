@@ -20,16 +20,45 @@
                         <span class="step-prev-actions animate">
                             <i class="icon cursor icon-move drag-handle"  ></i>
                             <i class="icon cursor icon-remove-circle" ng-click="removeStep(scenario, $index)" title="Remove this step"  ></i>
-                            <i class="icon cursor icon-th" title="Click here to add examples"  ></i>
+                            <i class="icon cursor icon-th" title="Click here to add rows" ng-click="addOutline(step)" ></i>
                         </span>
                         <span class="step-type step-type-{{step.type}}">{{step.type}}</span>
                     </span>
-                    <textarea ui-codemirror="{
-                              mode:'text/javascript',
-                              matchBracket:false
-                              }" 
-                              ng-model="step.text"
-                              ></textarea>
+                    <div>
+                        <textarea ui-codemirror="{
+                                  mode:'text/javascript',
+                                  matchBracket:false
+                                  }" 
+                                  ng-model="step.text"
+                                  ></textarea>
+                    </div>
+
+
+                    <div class="step-outline" ui-show="step.outline" ng-class="{'hide':step.outline == null}" >
+                        <div class="def-hide-handler">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr ng-repeat="row in step.outline.rows" class="def-hide-row-handler">
+
+                                        <td><i 
+                                                ng-click="removeOutlineRow(step.outline, row);"
+                                                class="cursor def-hide-row animate icon icon-remove-sign"></i></td>
+
+                                        <td ng-repeat="cell in row">
+                                            <input type="text" ng-model="cell" class="reset" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="def-hide animate table-act">
+                                <button class="animate btn btn-small" ng-click="addOutlineRow(step.outline)">add row</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </li>
             </ul>
         </div>
@@ -42,34 +71,36 @@
         </div>
 
         <div class="scenario-examples" ui-show="searchVars(scenario).length > 0">
-            <h5>Examples:</h5>
-            <table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th class="th-act"></th>
-                        <th ng-repeat="title in searchVars(scenario)">{{title}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="row in searchValues(scenario.examples)" class="def-hide-row-handler" ng-class="{'hide':$first}">
-                        
-                        <td><i 
-                                ng-click="removeExampleRow(scenario, row);"
-                                class="cursor def-hide-row animate icon icon-remove-sign"></i></td>
-                        
-                        <td ng-repeat="cell in row">
-                            <textarea placeholder="..." class="span8 input-scenario-title" ui-codemirror="{
-                                      mode:'text/javascript',
-                                      matchBracket:false
-                                      }" ng-model="cell"></textarea>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="def-hide-handler">
+                <h5>Examples:</h5>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th class="th-act"></th>
+                            <th ng-repeat="title in searchVars(scenario)">{{title}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in searchValues(scenario.examples)" class="def-hide-row-handler" ng-class="{'hide':$first}">
 
-            <div class="def-hide animate">
-                <button class="def-hide animate btn btn-small" ng-click="addExampleRow(scenario)">add row</button>
-                <br /><i class="icon icon-info-sign"></i> <i>Use the &lt;name1&gt; notation in any step to add new column</i>
+                            <td><i 
+                                    ng-click="removeExampleRow(scenario, row);"
+                                    class="cursor def-hide-row animate icon icon-remove-sign"></i></td>
+
+                            <td ng-repeat="cell in row">
+                                <textarea placeholder="..." class="span8 input-scenario-title" ui-codemirror="{
+                                          mode:'text/javascript',
+                                          matchBracket:false
+                                          }" ng-model="cell"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="def-hide animate table-act">
+                    <button class="def-hide animate btn btn-small" ng-click="addExampleRow(scenario)">add row</button>
+                    <br /><i class="icon icon-info-sign"></i> <i>Use the &lt;name1&gt; notation in any step to add new column</i>
+                </div>
             </div>
         </div>
     </div>

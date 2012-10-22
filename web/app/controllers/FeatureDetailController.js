@@ -79,4 +79,30 @@ function FeatureDetailController($scope, FeatureService, $http) {
     $scope.changeCurrentFeature = function (index) {
         this.FeatureService.currentFeatureIndex = index;
     };
+    
+    $scope.addOutline = function(node) {
+        if(node.outline == null) {
+            node.outline = new hbw.entity.outline;
+            node.outline.push(['...','...']);
+        }
+    }
+    
+    $scope.removeOutlineRow = function(node, row) {
+        node.removeRow(row);
+    }
+    $scope.addOutlineRow = function(node) {
+        if(node.rows.length > 0) {
+            var max = node.rows[0].length;
+        } else {
+            max = 3;
+        }
+        var datas = [];
+        var i;
+        for(i = 0 ; i < max ; i++) {
+            datas.push('...');
+        }
+        if(datas.length > 0) {
+            node.push(datas);
+        }
+    }
 }
