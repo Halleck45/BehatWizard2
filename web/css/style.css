@@ -234,3 +234,24 @@ input.feature-main-title {
 .step-outline .table-act {
     text-align:right;
 }
+
+
+/* ----- Listing - Search ---- */
+.container-search {
+    text-align:center;
+}
+.search-text{
+    margin:10px 0;
+}
+/* ----- Listing ---- */
+.container-features .feature {
+    height:100px;
+    overflow:hidden;
+    position: relative;
+    padding-bottom:20px;
+}
+.container-features .feature-tags {
+    position:absolute;
+    bottom:10px;
+    right:10px;
+}

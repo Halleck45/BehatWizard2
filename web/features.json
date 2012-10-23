@@ -53,7 +53,8 @@
                 "examples":[]
             }
         ],
-        "background":[]
+        "background":[],
+        "tags":["tag1","tag2","tag3"]
     },
     {
         "id":"aaaaaaaaaaaaaaaaaaaaaaaa",
@@ -119,7 +120,8 @@
                 "isOutline":true,
                 "examples":[["true","anything"],["1","2"],["1","2"]]
             }],
-        "background":[]
+        "background":[],
+        "tags":["tag1","tag3"]
     },
     {
         "title":"Feature 3",
@@ -151,6 +153,7 @@
                 "isOutline":true,
                 "examples":[["true","anything"],["1","2"],["1","2"]]
             }],
-        "background":[]
+        "background":[],
+        "tags":["tag1"]
     }
 ]
