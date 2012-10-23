@@ -243,6 +243,9 @@ input.feature-main-title {
 .search-text{
     margin:10px 0;
 }
+.criterium-selected {
+    font-weight: bold;
+}
 /* ----- Listing ---- */
 .container-features .feature {
     height:100px;

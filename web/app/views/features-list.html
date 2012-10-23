@@ -3,22 +3,23 @@
 
     <div class="container-search">
         <div class="search-state">
-            <button ng-click="setCriterium('state', 'success');" class="btn btn-success">Success only</button>
-            <button ng-click="setCriterium('state', 'failure');" class="btn btn-danger">Failure only</button>
-            <button ng-click="setCriterium('state', 'pending');" class="btn btn-warning">Pending only</button>
+            <button ng-click="setCriterium('state', null);" class="btn btn" ng-class="{'criterium-selected': criterium.state == null}">All</button>
+            <button ng-click="setCriterium('state', 'success');" class="btn btn-success" ng-class="{'criterium-selected': criterium.state == 'success'}">Success only</button>
+            <button ng-click="setCriterium('state', 'failure');" class="btn btn-danger" ng-class="{'criterium-selected': criterium.state == 'failure'}">Failure only</button>
+            <button ng-click="setCriterium('state', 'pending');" class="btn btn-warning" ng-class="{'criterium-selected': criterium.state == 'pending'}">Pending only</button>
         </div>
         <div class="form-horizontal search-text">
             Search by title:
-            <input id="search-text" type="text" ng-model="criteriumSearchedText" />
+            <input id="search-text" type="text" ng-model="criterium.text" />
         </div>
         <div class="navbar-fixed-bottom search-tags" ng-class="{'hide':getAvailableTags() == 0}">
             <a ng-click="setCriterium('tag', tag);" 
-               class="badge" ng-repeat="tag in getAvailableTags()">{{tag}}</a>
+               class="badge" ng-repeat="tag in getAvailableTags()" ng-class="{'criterium-selected': criterium.tag == tag}">{{tag}}</a>
         </div>
     </div>
 
     <div class="container-features">
-        <div class="span3 well feature" ng-repeat="feature in features" ng-class="{'hide':!matchCurrentCriterium(feature)}">
+        <div class="span3 well animate feature" ng-repeat="feature in features" ng-class="{'hide':!matchCurrentCriterium(feature)}">
             <div class="feature-title"><a href="#">{{feature.title}}</a></div>
             <div class="feature-inorder"><span>In order to</span> {{feature.inorder}}</div>
             <div class="feature-as"><span>As</span> {{feature.as}}</div>
@@ -30,7 +31,8 @@
 
             <div class="feature-tags">
                 <a ng-click="setCriterium('tag', tag);" 
-                   class="badge" ng-repeat="tag in getAvailableTags()">{{tag}}</a>
+                   class="badge" ng-repeat="tag in getAvailableTags()"
+                   ng-class="{'criterium-selected': criterium.tag == tag}">{{tag}}</a>
             </div>
         </div>
     </div>
