@@ -70,7 +70,7 @@
             <button class=" btn" ng-click="addStep( scenario, {type:'Then', text:'...'} );"><i class="icon icon-plus-sign"></i> Expected result</button>
         </div>
 
-        <div class="scenario-examples" ui-show="searchVars(scenario).length > 0">
+        <div class="scenario-examples" ng-class="{'hide': searchVars(scenario).length == 0}">
             <div class="def-hide-handler">
                 <h5>Examples:</h5>
                 <table class="table table-condensed">
@@ -99,9 +99,11 @@
 
                 <div class="def-hide animate table-act">
                     <button class="def-hide animate btn btn-small" ng-click="addExampleRow(scenario)">add row</button>
-                    <br /><i class="icon icon-info-sign"></i> <i>Use the &lt;name1&gt; notation in any step to add new column</i>
                 </div>
             </div>
+        </div>
+        <div class="warning">
+            <i class="icon icon-info-sign"></i> <i>Use the &lt;name1&gt; notation in any step to add new example</i>
         </div>
     </div>
 </div>

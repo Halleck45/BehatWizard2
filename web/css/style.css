@@ -128,9 +128,7 @@ input.feature-main-title {
     min-height: 0;
     max-height: 0;
     padding: 0 18px;
-    -moz-opacity: 0.1;
-    opacity: 0.1;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=10);
+    border:none;
 }
 .lateral-preview.ui-scrollfix .feature-infos-preview {
     height:auto;
