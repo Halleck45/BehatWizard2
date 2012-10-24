@@ -41,7 +41,28 @@ input.reset, input.rest[type="text"] {
     height:1em !important;
 }
 .ui-hide {
-    display:none;
+    height:0;
+    min-height:0;
+    max-height:0;
+    border:none;
+    overflow:hidden;
+    padding:0;
+    left:0;
+    top:0;
+    height:0 !important;
+    min-height:0 !important;
+    max-height:0 !important;
+    border:none !important;
+    overflow:hidden !important;
+    padding:0 !important;
+    left:0 !important;
+    top:0 !important;
+    -moz-opacity: 0;
+    opacity: 0;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=0);
+}
+.ui-hide-slide {
+    margin-left:-5000px;
 }
 .label, .badge {
     vertical-align:middle;
@@ -52,6 +73,13 @@ input.reset, input.rest[type="text"] {
     -o-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}
+.animate-slow {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 .def-hide,
 .def-hide-row {
@@ -244,7 +272,7 @@ input.feature-main-title {
     margin:10px 0;
 }
 .criterium-selected {
-    font-weight: bold;
+    font-weight:bold;
 }
 /* ----- Listing ---- */
 .container-features .feature {
