@@ -19,7 +19,7 @@ hbw.app.service('FeatureService', function() {
      */
     this.push = function(feature) {
         this.features.push(feature);
-        // todo : notify observers
+    // todo : notify observers
     };
 
     this.setFeatures = function(datas) {
@@ -27,5 +27,21 @@ hbw.app.service('FeatureService', function() {
         for(i in datas) {
             this.features.push(new hbw.entity.feature(datas[i]));
         }
-    }
+    };
+    
+    this.getFeatures = function() {
+        return this.features;
+    };
+    
+    this.setCurrentFeature = function(feature) {
+        var i;
+        for(i in this.features) {
+            if(this.features[i] == feature) {
+                this.currentFeatureIndex = i;
+                return;
+            }
+        }
+        this.features.push(feature);
+        this.currentFeatureIndex = this.features.length;
+    };
 });

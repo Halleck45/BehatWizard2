@@ -1,9 +1,15 @@
 function FeatureListController($scope, FeatureService, $http) {
-    $http.get('features.json').success(function(data) {
-        $scope.features = data;
-        FeatureService.setFeatures(data);
+    if(FeatureService && FeatureService.features.length == 0) {
+        $http.get('features.json').success(function(data) {
+            FeatureService.setFeatures(data);
+            $scope.features = FeatureService.getFeatures();
+            $scope.feature = FeatureService.getCurrentFeature();
+        });
+    } else {
+        $scope.features = FeatureService.features;
         $scope.feature = FeatureService.getCurrentFeature();
-    });
+    }
+    $scope.FeatureService = FeatureService;
     
     $scope.criterium = {
         state : null,
@@ -43,5 +49,8 @@ function FeatureListController($scope, FeatureService, $http) {
         return true;
     };
     
-    
+ 
+    $scope.setCurrentFeature =  function(feature) {
+        this.FeatureService.setCurrentFeature(feature);
+    };
 }

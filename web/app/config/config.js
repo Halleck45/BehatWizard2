@@ -7,6 +7,6 @@ hbw.app.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'app/views/feature-detail.html'
     }).
     otherwise({
-        redirectTo: '/feature'
+        redirectTo: '/features'
     });
 }]);
