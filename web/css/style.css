@@ -290,3 +290,14 @@ input.feature-main-title {
 .container-features .feature-title{
     display:block;
 }
+.feature-state-flag {
+    float:left;
+    height:100%;
+    width:10px;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.feature-state-flag.state-failure { background-color: #46A546; }
+.feature-state-flag.state-success { background-color: #9D261D; }
+.feature-state-flag.state-pending { background-color: #F89406; }

@@ -20,7 +20,8 @@
 
     <div class="container-features">
         <div class="span3 well animate-slow feature" ng-repeat="feature in features" ng-class="{'ui-hide-slide':!matchCurrentCriterium(feature)}">
-            <div class=""><a class="feature-title state state-{{feature.state}}" 
+            <div class="feature-state-flag state state-{{feature.state}}"></div>
+            <div class=""><a 
                              ng-click="setCurrentFeature(feature)"
                              href="#feature">{{feature.title}}</a></div>
             <div class="feature-inorder"><span>In order to</span> {{feature.inorder}}</div>
