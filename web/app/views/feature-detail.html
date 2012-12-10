@@ -1,37 +1,35 @@
+<div  ng-controller="FeatureDetailController" class="container-editing">
 
-<div class="row" ng-controller="FeatureDetailController">
 
-    <div class="span4 lateral-preview"  ui-scrollfix="+50" >
+
+    <div class="page snapped">
         <div ng-include="'app/views/partials/feature-detail/preview-current-feature.html'">loading</div>
-        <div class="box-list-features animate" >
-            <h5>Other features</h5>
-            <div ng-include="'app/views/partials/preview-features.html'">loading</div>
+    </div>
+
+    <div class="page fill">
+        <div class=" main-panel">
+
+            <div class="page-region">
+                <div class="page-region-content">
+
+                    <div class="feature-infos-container animate" >
+                        <div ng-include="'app/views/partials/feature-detail/main-infos.html'">loading</div>
+                    </div>
+
+                    <div class="scenario-container">
+                        <div ng-include="'app/views/partials/feature-detail/scenarios.html'">loading</div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 
 
-    <div class="span8 main-panel">
-        <div class="feature-infos-container animate" >
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <span class="brand">Describe your feature in few words:</span>
-                </div>
-            </div>
-            <div ng-include="'app/views/partials/feature-detail/main-infos.html'">loading</div>
-        </div>
 
-        <div class="scenario-container animate" ui-scrollfix="+0">
-            <hr />
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <span class="brand">Add scenarios in your feature:</span>
-                </div>
-            </div>
-            <div ng-include="'app/views/partials/feature-detail/scenarios.html'">loading</div>
-        </div>
 
-    </div>
 </div>
 
 <!-- preview -->
-<div ng-include="'app/views/partials/feature-detail/preview-raw.html'">loading</div>
+<!--<div ng-include="'app/views/partials/feature-detail/preview-raw.html'">loading</div>-->

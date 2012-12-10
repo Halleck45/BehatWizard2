@@ -1,0 +1,57 @@
+.container-list-features {
+    li {
+        background-color:@blueDark;
+        color:@white;
+        &.state-success {
+            background-color:@greenDark;
+            color:@white;
+            .tag {
+                background-color:@green;
+                color:@white;
+            }
+        }
+        &.state-failure {
+            background-color:@red;
+            color:@white;
+            .tag {
+                background-color:@orangeDark;
+                color:@white;
+            }
+        }
+        &.state-pending {
+            background-color:@orange;
+            color:@white;
+            .tag {
+                background-color:@yellow;
+                color:@white;
+            }
+        }
+        a {
+            color:@white;
+        }
+
+        .scenario {
+            .ui-none();
+            .transition();
+        }
+
+        &:hover {
+            .scenario {
+                //.ui-show();
+            }
+        }
+        
+    }
+}
+
+.tag {
+    display:inline-block;
+    padding:2px 4px;
+    margin:0 2px 2px 0;
+    background-color:@blueLight;
+    color:@darken;
+}
+.criterium-selected {
+    background-color:@blue;
+    color:@white;
+}

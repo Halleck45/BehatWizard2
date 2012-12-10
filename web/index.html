@@ -3,31 +3,40 @@
     <head>
         <title>Behat Wizard 2.0</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="lib/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
         <link href="lib/angularjs/angular-ui/angular-ui.min.css" type="text/css" rel="stylesheet" />
-        <link href="css/style.css" type="text/css" rel="stylesheet" />
+
+        <link href="lib/metro/css/modern.css" type="text/css" rel="stylesheet" />
+        <link href="lib/metro/css/modern-responsive.css" type="text/css" rel="stylesheet" />
         <link href="lib/codemirror/codemirror.css" type="text/css" rel="stylesheet" />
         <link href="lib/codemirror/theme/hbw.css" type="text/css" rel="stylesheet" />
         <link href="lib/codemirror/util/simple-hint/simple-hint.css" type="text/css" rel="stylesheet" />
+
+        <link href="css/style.css" type="text/css" rel="stylesheet" />
     </head>
-    <body ng-app="hbw">
+    <body ng-app="hbw" class="modern-ui">
 
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="/">BehatWizard 2.0</a>
+        <div class="page">
+            <div class="nav-bar">
+                <div class="nav-bar-inner padding10">
+                    <span class="pull-menu"></span>
 
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li><a href="#"><i class="icon icon-home"></i> Features</a></li>
-                            <li><a href="#"><i class="icon icon-plus-sign"></i> New feature</a></li>
-                        </ul>
-                    </div>
+                    <a href="#/features"><span class="element brand">
+                            BehatWizard <small>2 alpha</small>
+                        </span></a>
+
+                    <div class="divider"></div>
+
+                    <ul class="menu">
+                        <li><a href="#/features">My features</a></li>
+                        <li><a href="#/features">New feature</a></li>
+                        <li><a href="#/features"><i class="icon-help"></i> Help</a></li>
+                    </ul>
+
                 </div>
             </div>
         </div>
 
-        <div class="container page">
+        <div class=" page secondary">
             <div ng-view></div>
         </div>
 

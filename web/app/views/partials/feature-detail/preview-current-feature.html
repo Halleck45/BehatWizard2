@@ -1,23 +1,42 @@
+
+
 <div  class="feature-prev-container ">
-    <div class="well feature-infos-preview animate">
-        <i class="icon cursor icon-zoom-in" data-target="#displayPreview" data-toggle="modal"></i>
-        <strong>{{feature.title}}</strong>:
-        <div class="feature-infos-preview-els">
-            In order {{feature.inorder}}
-            <br />As {{feature.as}}
-            <br />I should {{feature.should}}
-            <br />{{feature.notes}}
+    <div class="well feature-infos-preview animate ">
+
+
+        <h3>Your Feature:</h3>
+        <blockquote>
+            A feature is a service provided to yours users, by your application.
+        </blockquote>
+<br />
+
+        <div class="tile double feature-prev-main" ng-click="changeCurrentScenario(null)">
+            <div class="tile-content">
+                <h2>{{feature.title}}</h2>
+                <h5>{{feature.scenarios.length}} scenarios</h5>
+                <p>
+                    In order {{feature.inorder}}
+                    <br />As {{feature.as}}
+                    <br />I should {{feature.should}}
+                    <br />{{feature.notes}}
+                </p>
+            </div>
         </div>
-        <hr />
-        <p>
-            You have <b>{{feature.scenarios.length}} scenarios</b>. <a ng-click="addScenario(feature)">New scenario</a>
-        </p>
+
+        <h3>Scenarios:</h3>
+        <blockquote>
+            Scenario is one way for "{{feature.as}}" to achieve the objective "{{feature.inorder}}".
+            <br /><small>You have <b>{{feature.scenarios.length}} scenarios</b>.</small>
+        </blockquote>
 
         <div class="prev-scenarios feature-prev-details">
 
-            <div ng-repeat="scenario in feature.scenarios" class="state state-{{scenario.state}}">
-                <i class="icon icon-th-large"></i> <a ng-click="$anchorScroll()" href="#scenario-{{ $index }}">{{scenario.title}}</a>
-            </div>
+            <ul class="listview" >
+                <li ng-click="changeCurrentScenario(scenario)" ng-repeat="scenario in feature.scenarios" >
+                    {{scenario.title}}
+                </li>
+            </ul>
+            <button ng-click="changeCurrentScenario(addScenario(feature));">New scenario</button>
         </div>
 
     </div>

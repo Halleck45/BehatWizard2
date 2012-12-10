@@ -33,12 +33,13 @@ hbw.entity.outline = function(datas) {
         
         if(this.rows.length > 0) {
             if(data.length != this.rows[0].length) {
-            //                throw new hbw.entity.exception("Incorrect example given");
-            }
+        //                throw new hbw.entity.exception("Incorrect example given");
+        }
         }
 
         this.rows.push(data);
     };
+
 
     /**
      * Constructor

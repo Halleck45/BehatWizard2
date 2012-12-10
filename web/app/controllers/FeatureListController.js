@@ -1,4 +1,4 @@
-function FeatureListController($scope, FeatureService, $http) {
+function FeatureListController($scope, FeatureService, $http, $location) {
     if(FeatureService && FeatureService.features.length == 0) {
         $http.get('features.json').success(function(data) {
             FeatureService.setFeatures(data);
@@ -10,6 +10,9 @@ function FeatureListController($scope, FeatureService, $http) {
         $scope.feature = FeatureService.getCurrentFeature();
     }
     $scope.FeatureService = FeatureService;
+    $scope.$location = $location;
+    
+    
     
     $scope.criterium = {
         state : null,
@@ -18,6 +21,10 @@ function FeatureListController($scope, FeatureService, $http) {
     }
     
     $scope.setCriterium = function(type, value) {
+        // revert
+        if($scope.criterium[type] == value) {
+            value = null;
+        }
         $scope.criterium[type] = value;
     }
     
@@ -52,5 +59,10 @@ function FeatureListController($scope, FeatureService, $http) {
  
     $scope.setCurrentFeature =  function(feature) {
         this.FeatureService.setCurrentFeature(feature);
+        this.$location.path('/feature');
+    };
+
+    $scope.getAvailableTags = function() {
+        return this.FeatureService.getAvailableTags();
     };
 }

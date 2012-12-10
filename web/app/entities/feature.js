@@ -67,6 +67,13 @@ hbw.entity.feature = function(datas) {
     this.state = datas.state || 'pending';
 
     /**
+     * tags
+     *
+     * @var array
+     */
+    this.tags = datas.tags || [];
+
+    /**
      * Constructor
      *
      * @param datas [ steps:[ {content:"", example: null}, ...], example: null ]

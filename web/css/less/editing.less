@@ -1,0 +1,43 @@
+.container-editing {
+    .fill, .snapped {
+        padding-top:30px;
+    }
+}
+.prev-scenarios {
+    li {
+        background-color:@orangeDark;
+        color:@white;
+        a { color:@white; }
+    }
+}
+.feature-prev-container {
+    .feature-prev-main {
+        background-color:@red;
+        color:@white;
+    }
+}
+
+.scenario-label {
+    background-color:@orangeDark;
+    color:@white;
+    padding:10px;
+    margin:1em 0 0.5em 0;
+    width:100%;
+}
+.act {
+    &.toolbar {
+        text-align:right;
+    }
+}
+
+.step {
+    &:hover {
+        .step-actions {
+            .ui-show();
+        }
+    }
+    .step-actions {
+        .animate();
+        .ui-hide();
+    }
+}

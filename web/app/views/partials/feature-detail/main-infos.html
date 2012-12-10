@@ -1,52 +1,52 @@
-<div ui-scrollfix="+650">
 
-    <div class="feature-infos-full">
+<div class="box-edit-main" ng-class="{'ui-none':getCurrentScenario() != null}">
 
-        <div class="feature-title-container">
-            <div>
-                <input class="reset feature-main-title" type="text" ng-model="feature.title" placeholder="MyFeature" />
-            </div>
+    <h2>Describe your feature in few words:</h2>
 
-            <div class="sub-feature-title">
-                <div  >
-                    <span class="sub-feature-helper"
-                          ui-jq="tooltip" title="Objective of your feature."
-                          >In order</span>
-                    <span class="sub-feature-ipt">
-                        <input class="reset" type="text" ng-model="feature.inorder" placeholder="..."  ui-jq="tooltip" title="Objective of your feature." />
-                    </span>
-                </div>
-                <div>
-                    <span class="sub-feature-helper"
-                          ui-jq="tooltip" title="Actor of your feature."
-                          >As</span>
-                    <span class="sub-feature-ipt">
-                        <input class="reset" type="text" ng-model="feature.as" placeholder="..." ui-jq="tooltip" title="Business benefice of your feature." />
-                    </span>
-                </div>
-                <div>
-                    <span class="sub-feature-helper"
-                          ui-jq="tooltip" title="Business benefice of your feature."
-                          >I should</span>
-                    <span class="sub-feature-ipt">
-                        <input class="reset" type="text" ng-model="feature.should" placeholder="..."  ui-jq="tooltip" title="Business benefice of your feature." />
-                    </span>
+    <div class="grid">
+        <div class="row">
+            <div class="span1">Title:</div>
+            <div class="span5">
+                <div class="input-control text">
+                    <input type="text" placeholder="Name of this feature" ng-model="feature.title"  />
                 </div>
             </div>
-
-            <a  ng-click="showNotes=!showNotes">Details</a>
-            <fieldset id="box-notes" ui-hide="feature.notes.length == 0 || !showNotes">
-                    <textarea rows="6" class="field  span6" placeholder="..." id="notes" name="notes" ng-model="feature.notes"></textarea>
-                    <p class="help-block">Fill notes ONLY if it's really essential to understanding.</p>
-            </fieldset>
+            
         </div>
-
-        
-
-        <div>
-            <p>
-                If you think your feature needs to be described with more details, you can add scenarios now.
-            </p>
+        <div class="row">
+            <div class="span1">In order</div>
+            <div class="span5">
+                <div class="input-control text">
+                    <input type="text" placeholder="Objective of your feature" ng-model="feature.inorder"  />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span1">As</div>
+            <div class="span5">
+                <div class="input-control text">
+                    <input type="text" placeholder="Actor this feature" ng-model="feature.as"  />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span1">I should</div>
+            <div class="span5">
+                <div class="input-control text">
+                    <input type="text" placeholder="Business benefice of your feature." ng-model="feature.should"  />
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="row">
+        <a  ng-click="showNotes=!showNotes">Details</a>
+        <div id="box-notes" ng-class="{'ui-none':feature.notes.length == 0 || !showNotes}">
+            <textarea rows="6" class="field  span6" placeholder="..." id="notes" name="notes" ng-model="feature.notes"></textarea>
+            <p class="help-block">Fill notes ONLY if it's really essential to understanding.</p>
+        </div>
+    </div>
+
+
+
 </div>

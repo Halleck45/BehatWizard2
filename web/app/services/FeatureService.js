@@ -2,6 +2,7 @@ hbw.app.service('FeatureService', function() {
 
     this.features = [];
     this.currentFeatureIndex = 0; // tmp: we provide default feature
+    this.availableTags = null;
 
     /**
      * Get the current feature
@@ -44,4 +45,29 @@ hbw.app.service('FeatureService', function() {
         this.features.push(feature);
         this.currentFeatureIndex = this.features.length;
     };
+
+
+    this.getAvailableTags = function() {
+        if(this.availableTags == null) {
+            if(this.features.length == 0) {
+                return []; // loading
+            }
+            this.availableTags = [];
+            // we cannot use $.unique here, even if we use $.makeArray before
+            // jQuery IS bugged
+            //  for(i in this.features) {
+            //     $.merge(this.availableTags,$.makeArray(this.features[i].tags));
+            // }
+            // this.availableTags = $.unique(this.availableTags);
+            var j;
+            for(i in this.features) {
+                for(j in this.features[i].tags) {
+                    if(-1 === $.inArray(this.features[i].tags[j], this.availableTags)) {
+                        this.availableTags.push(this.features[i].tags[j]);
+                    }
+                }
+            }
+        }
+        return this.availableTags;
+    }
 });

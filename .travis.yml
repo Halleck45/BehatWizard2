@@ -37,4 +37,3 @@ script: ./bin/behat
 notifications:
   email:
     - jeanfrancois@lepine.pro
-    - zoja87@gmail.com

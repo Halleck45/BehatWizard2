@@ -11,6 +11,7 @@ function FeatureDetailController($scope, FeatureService, $http) {
     }
 
     $scope.FeatureService = FeatureService;
+    $scope.currentScenario = null;
 
     $scope.addStep=function(scenario, stepDatas) {
         scenario.addStep(new hbw.entity.step(stepDatas));
@@ -36,7 +37,7 @@ function FeatureDetailController($scope, FeatureService, $http) {
     }
 
     $scope.addScenario=function(feature) {
-        feature.addScenario(new hbw.entity.scenario(
+        var scenario = new hbw.entity.scenario(
         {
             title:'New scenario',
             steps: [
@@ -56,8 +57,47 @@ function FeatureDetailController($scope, FeatureService, $http) {
             }
             ]
         }
-        ));
+        );
+        feature.addScenario(scenario);
+        return scenario;
     }
+
+    $scope.searchVarsThatAreNotExamples = function(scenario) {
+        var i,name, step;
+        var names = [];
+        for(i in scenario.steps) {
+            step = scenario.steps[i];
+            name = step.text.match(/"(.*)"/);
+            if(name != null) {
+                name = name[1];
+                if(-1 == $.inArray(name, names)
+                    && !name.match(/<(.*)>/)
+                    ) {
+                    names.push(name);
+                }
+            }
+        }
+        return names;
+    };
+
+    $scope.transformVarIntoExample = function(scenario) {
+        var i,name, step;
+        var names = [];
+        for(i in scenario.steps) {
+            step = scenario.steps[i];
+            name = step.text.match(/"(.*)"/);
+            if(name != null) {
+                name = name[1];
+                if(-1 == $.inArray(name, names)
+                    && !name.match(/<(.*)>/)
+                    ) {
+                    scenario.steps[i].text = step.text.replace(/"(.*)"/, '"<' + name + '>"')
+                }
+            }
+        }
+    };
+
+
 
     $scope.searchVars = function(scenario) {
         var i,name, step;
@@ -72,10 +112,23 @@ function FeatureDetailController($scope, FeatureService, $http) {
                 }
             }
         }
+
+        // pad rows
+        if(names.length > 0 && scenario.examples == null) {
+            scenario.examples = new hbw.entity.outline();
+            var row = [];
+            for(i in names) {
+                row.push('');
+            }
+            scenario.examples.push(row);
+            scenario.examples.push(row);
+        }
+
+        // pad columns
+
         return names;
-
-
     };
+
 
     $scope.searchValues = function(node) {
         return node && node.rows ? node.rows : [];
@@ -84,6 +137,17 @@ function FeatureDetailController($scope, FeatureService, $http) {
     $scope.changeCurrentFeature = function (index) {
         this.FeatureService.currentFeatureIndex = index;
     };
+
+
+    $scope.changeCurrentScenario = function (scenario) {
+        $scope.currentScenario = scenario;
+    };
+
+    $scope.getCurrentScenario = function () {
+        return $scope.currentScenario;
+    };
+
+
     
     $scope.addOutline = function(node) {
         if(node.outline == null) {
@@ -95,6 +159,17 @@ function FeatureDetailController($scope, FeatureService, $http) {
     $scope.removeOutlineRow = function(node, row) {
         node.removeRow(row);
     }
+
+    $scope.removeOutlineCol = function(node, colIndex) {
+        var i;
+        console.log(colIndex)
+        console.log(node.rows)
+//        for(i in node.rows) {
+//            console.log(node.rows[i])
+//            node.rows[i].splice(colIndex, 1);
+//        }
+    }
+
     $scope.addOutlineRow = function(node) {
         if(node.rows.length > 0) {
             var max = node.rows[0].length;
@@ -109,5 +184,29 @@ function FeatureDetailController($scope, FeatureService, $http) {
         if(datas.length > 0) {
             node.push(datas);
         }
+    }
+    $scope.addOutlineCol = function(node) {
+        var i, max = 1, j;
+        for (i in node.rows) {
+            max = node.rows[i].length > max ? node.rows[i].length : max;
+        }
+        max++; // add new col
+        for (i in node.rows) {
+            if(node.rows[i].length < max) {
+                for(j = node.rows[i].length ; j < max ; j++) {
+                    node.rows[i].push('.qs..');
+                }
+            }
+        }
+    }
+
+    $scope.getNbStepsOf = function(scenario, type) {
+        var i, n = 0;
+        for(i in scenario.steps) {
+            if(scenario.steps[i].type == type) {
+                n++;
+            }
+        }
+        return n;
     }
 }

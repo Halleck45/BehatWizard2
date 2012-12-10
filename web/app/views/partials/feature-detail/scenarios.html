@@ -1,110 +1,146 @@
 
 
 
-<p>
-    You have <b>{{feature.scenarios.length}} scenarios</b>. <a ng-click="addScenario(feature)">Click here to add new scenario</a>
-</p>
-
-<div class="well" ng-repeat="scenario in feature.scenarios" id="scenario-{{ $index }}">
-    <div class=" form-horizontal scenario-edit">
-        <div class="edit-scenario-title">
-            <textarea placeholder="..." class="span8 input-scenario-title" ui-codemirror="{
-                      mode:'text/javascript',
-                      matchBracket:false
-                      }" ng-model="scenario.title"></textarea>
-        </div>
-        <div class="edit-scenario-step">
-            <ul ui-sortable="{axis: 'y', handle:'.icon-move'}" ng-model="scenario.steps">
-                <li ng-repeat="step in scenario.steps" class="state state-{{step.state}}">
-                    <span class="step-prev ">
-                        <span class="step-prev-actions animate">
-                            <i class="icon cursor icon-move drag-handle"  ></i>
-                            <i class="icon cursor icon-remove-circle" ng-click="removeStep(scenario, $index)" title="Remove this step"  ></i>
-                            <i class="icon cursor icon-th" title="Click here to add rows" ng-click="addOutline(step)" ></i>
-                        </span>
-                        <span class="step-type step-type-{{step.type}}">{{step.type}}</span>
-                    </span>
-                    <div>
-                        <textarea ui-codemirror="{
-                                  mode:'text/javascript',
-                                  matchBracket:false
-                                  }" 
-                                  ng-model="step.text"
-                                  ></textarea>
-                    </div>
-
-
-                    <div class="step-outline" ui-show="step.outline" ng-class="{'hide':step.outline == null}" >
-                        <div class="def-hide-handler">
-                            <table class="table table-condensed">
-                                <tbody>
-                                    <tr ng-repeat="row in step.outline.rows" class="def-hide-row-handler">
-
-                                        <td><i 
-                                                ng-click="removeOutlineRow(step.outline, row);"
-                                                class="cursor def-hide-row animate icon icon-remove-sign"></i></td>
-
-                                        <td ng-repeat="cell in row">
-                                            <input type="text" ng-model="cell" class="reset" />
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <div class="def-hide animate table-act">
-                                <button class="animate btn btn-small" ng-click="addOutlineRow(step.outline)">add row</button>
-                            </div>
-                        </div>
-                    </div>
+<div ng-repeat="scenario in feature.scenarios" id="scenario-{{ $index }}" ng-class="{'ui-none':getCurrentScenario() != scenario}">
+    <h2>Add scenario in your feature:</h2>
 
 
 
-                </li>
-            </ul>
-        </div>
+    <div class="grid container-scenario">
 
-
-        <div class="scenario-edit-actions def-hide animate">
-            <button class="  btn" ng-click="addStep( scenario, {type:'Given', text:'...'} );"><i class="icon icon-plus-sign"></i> Pre-requisites</button>
-            <button class=" btn" ng-click="addStep( scenario, {type:'When', text:'...'} );"><i class="icon icon-plus-sign"></i> Event</button>
-            <button class=" btn" ng-click="addStep( scenario, {type:'Then', text:'...'} );"><i class="icon icon-plus-sign"></i> Expected result</button>
-        </div>
-
-        <div class="scenario-examples" ng-class="{'hide': searchVars(scenario).length == 0}">
-            <div class="def-hide-handler">
-                <h5>Examples:</h5>
-                <table class="table table-condensed">
-                    <thead>
-                        <tr>
-                            <th class="th-act"></th>
-                            <th ng-repeat="title in searchVars(scenario)">{{title}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="row in searchValues(scenario.examples)" class="def-hide-row-handler" ng-class="{'hide':$first}">
-
-                            <td><i 
-                                    ng-click="removeExampleRow(scenario, row);"
-                                    class="cursor def-hide-row animate icon icon-remove-sign"></i></td>
-
-                            <td ng-repeat="cell in row">
-                                <textarea placeholder="..." class="span8 input-scenario-title" ui-codemirror="{
-                                          mode:'text/javascript',
-                                          matchBracket:false
-                                          }" ng-model="cell"></textarea>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="def-hide animate table-act">
-                    <button class="def-hide animate btn btn-small" ng-click="addExampleRow(scenario)">add row</button>
+        <div class="row">
+            <div class="span1">Title</div>
+            <div class="span5">
+                <div class="input-control text">
+                    <input type="text" placeholder="Objective of your feature" ng-model="scenario.title"  />
                 </div>
             </div>
         </div>
-        <div class="warning">
-            <i class="icon icon-info-sign"></i> <i>Use the &lt;name1&gt; notation in any step to add new example</i>
+
+
+        <div class="row">
+            <blockquote>
+                A scenario contains steps. What kind of step do you want to add in the scenario "{{scenario.title}}" ?
+            </blockquote>
+            <br />
+            <p>
+                <button class="shortcut" ng-click="addStep( scenario, {type:'Given', text:'...'} );" >
+                    <span class="icon">
+                        <i class="icon-checkbox"></i>
+                    </span>
+                    <span class="label">
+                        Pre-requisite
+                    </span>
+                    <span class="badge">{{getNbStepsOf(scenario, 'Given')}}</span>
+                </button>
+
+                <button class="shortcut" ng-click="addStep( scenario, {type:'When', text:'...'} );">
+                    <span class="icon">
+                        <i class="icon-pointer"></i>
+                    </span>
+                    <span class="label">
+                        Event
+                    </span>
+                    <span class="badge">{{getNbStepsOf(scenario, 'When')}}</span>
+                </button>
+
+                <button class="shortcut" ng-click="addStep( scenario, {type:'Then', text:'...'} );">
+                    <span class="icon">
+                        <i class="icon-enter-2"></i>
+                    </span>
+                    <span class="label">
+                        Expected result
+                    </span>
+                    <span class="badge">{{getNbStepsOf(scenario, 'Then')}}</span>
+                </button>
+            </p>
+        </div>
+
+
+
+
+
+        <div ui-sortable="{axis: 'y', handle:'.step-type'}">
+            <div class="scenario-state step row" ng-repeat="step in scenario.steps">
+
+
+                <div class="span1 step-type">{{step.type}}</div>
+                <div class="span5">
+                    <div class="input-control text">
+                        <input type="text" placeholder="..." ng-model="step.text"  />
+                    </div>
+                </div>
+                <span class="step-actions">
+<!--                    <i class="icon cursor icon-remove" ng-click="removeStep(scenario, $index)" title="Remove this step"  ></i>-->
+                    <i class="icon cursor icon-grid" title="Mulilines step" ng-click="addOutline(step)" ></i>
+                </span>
+
+                <div class="step-outline ui-none row" ng-class="{'ui-show':step.outline != null}" >
+                    <div class="span1">&nbsp;</div>
+                    <table class="table condensed bordered striped span4">
+                        <tbody>
+                            <tr>
+                                <td class="act"></td>
+                                <td class="act" ng-repeat="cell in step.outline.rows[0]">
+                                    <i
+                                        ng-click="removeOutlineCol(step.outline, $index);"
+                                        class="cursor def-hide-row animate icon icon-remove"></i>
+                                </td>
+                            </tr>
+                            <tr ng-repeat="row in step.outline.rows" class="">
+                                <td class="act"><i
+                                        ng-click="removeOutlineRow(step.outline, row);"
+                                        class="cursor def-hide-row animate icon icon-remove"></i></td>
+
+                                <td ng-repeat="cell in row">
+                                    <input type="text" ng-model="cell" class="span1" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="act toolbar span5">
+                        <button class="" ng-click="addOutlineRow(step.outline)"><i class="icon-plus"></i> Row</button>
+                        <button class="" ng-click="addOutlineCol(step.outline)"><i class="icon-plus"></i> Col</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <blockquote class="ui-none" ng-class="{'ui-show': searchVarsThatAreNotExamples(scenario).length > 0}">
+            You use <strong>{{searchVarsThatAreNotExamples(scenario).length}}</strong> variables (identified by double quotes).
+            Do you want to transform them into examples ? <a ng-click="transformVarIntoExample(scenario)">yes</a> / <a href="#">no</a>
+        </blockquote>
+    </div>
+
+
+    <div class="scenario-examples ui-none" ng-class="{'ui-show': searchVars(scenario).length > 0}">
+        <div class="def-hide-handler">
+            <h3>Examples:</h3>
+            <table class="table condensed bordered striped">
+                <thead>
+                    <tr>
+                        <th class="th-act"></th>
+                        <th ng-repeat="title in searchVars(scenario)">{{title}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in searchValues(scenario.examples)" class="def-hide-row-handler" ng-class="{'hide':$first}">
+
+                        <td><i
+                                ng-click="removeExampleRow(scenario, row);"
+                                class="cursor def-hide-row animate icon icon-remove"></i></td>
+                        <td ng-repeat="cell in row">
+                            <input type="text" ng-model="cell" class="span1" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="act toolbar">
+                <button class="" ng-click="addExampleRow(scenario)"><i class="icon-plus"></i></button>
+            </div>
         </div>
     </div>
-</div>
-<div class="box-act"><button class="btn btn-primary" ng-click="addScenario(feature)">new scenario</button></div>
